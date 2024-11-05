@@ -11,15 +11,17 @@ const App = () => {
   ];
 
   return (
-    <div className="App">
+    <div className="App" dir="rtl">
       <header className="App-header">
-        <h1>نمونه ای از Grid</h1>
+        <h1>لیست کاربران</h1>
         <Grid
-          style={{ height: '400px' }}
+          style={{ height: '400px', backgroundColor: '#f4f4f9', borderRadius: '8px' }}
           data={data}
+          sortable
+          pageable={{ buttonCount: 3, pageSizes: [5, 10, 20] }}
         >
-          <GridColumn field="id" title="ID" width="50px" />
-          <GridColumn field="name" title="نام" />
+          <GridColumn field="id" title="شناسه" width="70px" />
+          <GridColumn field="name" title="نام" width="150px" />
           <GridColumn field="age" title="سن" width="100px" />
         </Grid>
       </header>
