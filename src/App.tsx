@@ -1,27 +1,27 @@
 import React from 'react';
-import { Button } from '@progress/kendo-react-buttons';
-import kendoka from './kendoka.svg';
+import { Grid, GridColumn } from '@progress/kendo-react-grid';
+import '@progress/kendo-theme-default/dist/all.css';
 import './App.scss';
 
-function App() {
-  const handleClick = React.useCallback(() => {
-    window.open('https://www.telerik.com/kendo-react-ui/components/', '_blank');
-  }, []);
+const App = () => {
+  const data = [
+    { id: 1, name: 'کاربر 1', age: 30 },
+    { id: 2, name: 'کاربر 2', age: 25 },
+    { id: 3, name: 'کاربر 3', age: 35 },
+  ];
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={kendoka} className="App-logo" alt="kendoka" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Button
-          themeColor={'primary'}
-          size={"large"}
-          onClick={handleClick}
+        <h1>نمونه ای از Grid</h1>
+        <Grid
+          style={{ height: '400px' }}
+          data={data}
         >
-          Learn KendoReact
-        </Button>
+          <GridColumn field="id" title="ID" width="50px" />
+          <GridColumn field="name" title="نام" />
+          <GridColumn field="age" title="سن" width="100px" />
+        </Grid>
       </header>
     </div>
   );
